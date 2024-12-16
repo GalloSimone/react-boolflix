@@ -1,11 +1,15 @@
+import { FilmSearchProvider } from "./contexts/filmsContext"
 import DefaultLayout from "./layout/DefaultLayout"
+import FilmSearch from "./componets/SerchFilms"
+
 function App(){
 return (
+  <FilmSearchProvider>
     <div>
-      <DefaultLayout/>
+      <FilmSearch/>
     </div>
+    </FilmSearchProvider>
   )
-
 }
 
   
