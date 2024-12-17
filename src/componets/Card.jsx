@@ -3,7 +3,13 @@ export default function Card({production}){
         if(production.original_language==='en') return'GB'
         return production.original_language.toUpperCase();
     } 
-    
+    const createdUrlImg=(poster)=>{
+    const imgUrl=`https://image.tmdb.org/t/p`;
+    const size=`/w342`;
+    return imgUrl+size+poster;
+    }
+
+
     
     return(
     <ul >
@@ -14,6 +20,7 @@ export default function Card({production}){
         <img src={`https://flagsapi.com/${formatLanguage()}/flat/64.png`}></img>
         </li>
         <li>{production.vote_average}</li>
+        <li><img src={createdUrlImg(production.poster_path)} alt="" /></li>
       </ul>
       )
 }

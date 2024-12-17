@@ -34,13 +34,14 @@ fetch(`${apiUrl}/search/tv?query=${term}`, fetchConfig)
 .then((res)=>res.json())
 .then((data)=>{
   const normalizedData = data.results.map((serie)=>{
-    const{id, name, original_name, original_language, vote_average}=serie;
+    const{id, name, original_name, original_language, vote_average,poster_path}=serie;
     return{
         id,
        title:name,
        original_title:original_name,
        original_language,
-       vote_average
+       vote_average,
+       poster_path
        
     }
   }
