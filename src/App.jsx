@@ -3,7 +3,7 @@ import { useGlobalContext } from "./contexts/GlobalContext"
 
 
 function App(){
-  const { searchMovie}=useGlobalContext();
+  const { movies, searchMovie}=useGlobalContext();
   const [userTerm,setUserTerm] = useState('')
 const handleUserTermChange = (e)=>{
   setUserTerm(e.target.value);
@@ -24,8 +24,15 @@ return (
   </header>
 
   <main>
-    <h1>ciao</h1>
-    
+    <h1>movies list</h1>
+    {movies.map(movie=>(
+      <ul>
+        <li>{movie.title}</li>
+        <li>{movie.original_title}</li>
+        <li>{movie.original_language}</li>
+        <li>{movie.vote_averange}</li>
+      </ul>
+    ))}
   </main>
   
     </>
