@@ -16,17 +16,50 @@ export const GlobalContextProvider=({ children })=>{
     fetch(`${apiUrl}/search/movie?query=${term}`, fetchConfig)
     .then(res=>res.json())
     .then(data=>{
-    setGlobalData({...globalData,movies: data.results});
+    setGlobalData((globalData)=>({...globalData,movies: data.results}));
         
     })
     
    }
+
+
+
+
+   const fetchSeries = (term)=>{
+    const fetchConfig={
+        method:'GET',
+        headers,
+    };
+fetch(`${apiUrl}/search/tv?query=${term}`, fetchConfig)
+.then((res)=>res.json())
+.then((data)=>{
+  const normalizedData = data.results.map((serie)=>{
+    const{id, name, original_name, original_language, vote_average}=serie;
+    return{
+        id,
+       title:name,
+       original_title:original_name,
+       original_language,
+       vote_average
+       
+    }
+  }
+
+  )
+    
+  
+    setGlobalData((globalData)=>({...globalData,series:normalizedData}));
+    
+})
+
+}
    
     const [globalData, setGlobalData]=useState({
       
         movies:[],
         searchMovie: fetchMovies,
         series:[],
+        searchSeries: fetchSeries
 
     });
     return <GlobalContext.Provider  value={globalData}>{children}</GlobalContext.Provider>;

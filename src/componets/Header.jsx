@@ -3,12 +3,13 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 
 
 export default function Header(){
-    const { searchMovie }=useGlobalContext();
+    const { searchMovie,searchSeries }=useGlobalContext();
     const [userTerm,setUserTerm] = useState('');
 
     const handleSearchSubmit=(e)=>{
         e.preventDefault();
         searchMovie(userTerm);
+        searchSeries(userTerm);
         }
        
         const handleUserTermChange = (e)=>{
