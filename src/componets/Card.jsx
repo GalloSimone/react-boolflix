@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function Card({production}){
     const formatLanguage=()=>{
         if(production.original_language==='en') return'GB'
@@ -8,18 +9,20 @@ export default function Card({production}){
     const size=`/w342`;
     return imgUrl+size+poster;
     }
+    const newVote = Math.ceil(production.vote_average/2)
+   
 
 
     
     return(
     <ul >
-        <li>{production.title}</li>
+        <li>{production.title} </li>
         <li>{production.original_title}
         </li>
         <li>{production.original_language}
         <img src={`https://flagsapi.com/${formatLanguage()}/flat/64.png`}></img>
         </li>
-        <li>{production.vote_average}</li>
+        <li>{newVote}</li>
         <li><img src={createdUrlImg(production.poster_path)} alt="" /></li>
       </ul>
       )
