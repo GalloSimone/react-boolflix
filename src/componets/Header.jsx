@@ -16,11 +16,12 @@ export default function Header(){
           setUserTerm(e.target.value);
         };
     return(
-        <header>
+        <header className="bg-black">
+          <h1 className="text-danger">BOOFLIX</h1>
     <form onSubmit={handleSearchSubmit}>
     <label></label>
-    <input  value={userTerm} onChange={handleUserTermChange}  type="text" />
-    <button>cerca</button>
+    <input  value={userTerm} onChange={handleUserTermChange}  type="text" className="m-3 rounded-3"/>
+    <button className="rounded-3 bg-danger">cerca</button>
     </form>
   </header>
     )
