@@ -6,3 +6,14 @@ img{
     width: 25rem;
     height: 30rem;
 }
+.card{
+position: absolute;
+
+}
+.card-body{
+position:relative;
+left: 40rem;
+bottom: 25rem;
+
+
+}

@@ -21,7 +21,7 @@ export default function Card({production}){
 
     return(
         <div 
-        className='card'
+        className='card m-5'
         onMouseEnter={()=> setHover(true)}
         onMouseLeave={()=>setHover(false)}
         >
@@ -31,10 +31,10 @@ export default function Card({production}){
         {
             hover && (
                 <div className='card-body'>
-                  <h5 className='card-title'>{production.title}</h5>
-                  <h6 card-subtitle>{production.original_title}</h6>
+                  <h2 className='card-title'>{production.title}</h2>
+                  <h3 >{production.original_title}</h3>
                   <img src={`https://flagsapi.com/${formatLanguage()}/flat/64.png`} className='flag'></img>
-                  <p card-text>{newVote}/5</p>
+                  <p >{newVote}/5</p>
 
                 </div>
             )
@@ -45,13 +45,3 @@ export default function Card({production}){
        
     )
       }
-/**<ul >
-        <li className="text-white">{production.title} </li>
-        <li className="text-white">{production.original_title}
-        </li>
-        <li className="text-white">{production.original_language}
-        <img src={`https://flagsapi.com/${formatLanguage()}/flat/64.png`}></img>
-        </li>
-        <li className="text-white">{newVote}</li>
-        <li><img src={createdUrlImg(production.poster_path)} alt="" className='border border-light'/></li>
-      </ul>*/
